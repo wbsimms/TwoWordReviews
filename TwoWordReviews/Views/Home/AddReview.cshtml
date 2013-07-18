@@ -1,0 +1,16 @@
+﻿@model TwoWordReviews.Models.MainModel
+
+@{
+    ViewBag.Title = "AddReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddReview</h2>
+<ul>
+@{
+    foreach (string s in Model.SubjectTypes)
+    {
+        <li>@s</li>
+    }
+}
+</ul>
