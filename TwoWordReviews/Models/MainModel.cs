@@ -14,5 +14,7 @@ namespace TwoWordReviews.Models
         {
             SubjectTypes = EnumHelper<SubjectType>.EnumToList();
         }
+
+        public string SelectedType { get; set; }
     }
 }

@@ -7,10 +7,17 @@
 
 <h2>AddReview</h2>
 <ul>
-@{
-    foreach (string s in Model.SubjectTypes)
+    
+    @using (Html.BeginForm())
     {
-        <li>@s</li>
+        @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = Model.SubjectTypes.IndexOf(y).ToString()}),"What did you review?");
+        
     }
-}
+
+    @{
+        foreach (string s in Model.SubjectTypes)
+        {
+            <li>@s</li>
+        }
+    }
 </ul>
