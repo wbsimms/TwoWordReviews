@@ -10,14 +10,17 @@
     
     @using (Html.BeginForm())
     {
-        @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = Model.SubjectTypes.IndexOf(y).ToString()}),"What did you review?");
+        @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = y}),"What did you review?");
         
+        <div>
+            <span>What are you reviewing?</span>
+            @Html.TextBoxFor(x => x.Subject)
+        </div>
+        <div>
+            <span>Two word review</span>
+            @Html.TextBoxFor(x=>x.TwoWordReview)
+        </div>
+        <input type="submit">
     }
 
-    @{
-        foreach (string s in Model.SubjectTypes)
-        {
-            <li>@s</li>
-        }
-    }
 </ul>

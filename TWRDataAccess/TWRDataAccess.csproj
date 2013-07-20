@@ -49,6 +49,7 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -63,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Entities\Review.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="TWRContext.cs" />
     <Compile Include="Entities\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +100,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
