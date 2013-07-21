@@ -20,23 +20,9 @@ namespace TWRDataAccess.Repositories
     [Export(typeof(IRepositoryCollection))]
     public class RepositoryCollection : IRepositoryCollection
     {
-//        private CompositionContainer container;
 
         public RepositoryCollection()
         {
-            //var catalog = new AggregateCatalog();
-            //catalog.Catalogs.Add(new AssemblyCatalog(typeof(TWRContext).Assembly));
-
-            //container = new CompositionContainer(catalog);
-
-            //try
-            //{
-            //    this.container.ComposeParts(this);
-            //}
-            //catch (CompositionException compositionException)
-            //{
-            //    Console.WriteLine(compositionException.ToString());
-            //}
         }
 
         [Import]
