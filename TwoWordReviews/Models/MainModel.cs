@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TWRDataAccess.Entities;
 using TWRDataAccess.Types;
 using TWRDataAccess.Utils;
 
@@ -24,6 +25,9 @@ namespace TwoWordReviews.Models
         public string Subject { get; set; }
 
         [Required]
+        [RegularExpression("\\w+\\s\\w+",ErrorMessage = "Review must contain two words")]
         public string TwoWordReview { get; set; }
+
+        public List<Review> AllReviews { get; set; }
     }
 }

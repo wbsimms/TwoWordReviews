@@ -28,8 +28,22 @@ namespace TwoWordReviews.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult AddReview()
+        {
+            MainModel mainModel = new MainModel();
+            mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
+            return View("AddReview", mainModel);
+        }
+
+        [HttpPost]
         public ActionResult AddReview(MainModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                model.AllReviews = Repositories.ReviewRepository.GetAllReviews();
+                return View("AddReview", model);
+            }
             if (ShouldSave(model))
             {
                 Repositories.ReviewRepository.AddReview(new Review()
@@ -38,7 +52,9 @@ namespace TwoWordReviews.Controllers
                     TwoWordReview = model.TwoWordReview,
                 });
             }
-            return View("AddReview", new MainModel());
+            MainModel mainModel = new MainModel();
+            mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
+            return View("AddReview", mainModel);
         }
 
         public bool ShouldSave(MainModel model)

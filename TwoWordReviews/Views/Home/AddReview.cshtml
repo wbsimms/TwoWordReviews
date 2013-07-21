@@ -1,4 +1,5 @@
-﻿@model TwoWordReviews.Models.MainModel
+﻿@using TWRDataAccess.Entities
+@model TwoWordReviews.Models.MainModel
 
 @{
     ViewBag.Title = "AddReview";
@@ -10,6 +11,7 @@
     
     @using (Html.BeginForm())
     {
+        @Html.ValidationSummary()
         @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = y}),"What did you review?");
         
         <div>
@@ -21,6 +23,12 @@
             @Html.TextBoxFor(x=>x.TwoWordReview)
         </div>
         <input type="submit">
+    }
+    <hr/>
+    <div>Subject ===== TwoWordReview</div>
+    @foreach (Review r in Model.AllReviews)
+    {
+        <div>@r.Subject.Name ===== @r.TwoWordReview</div>
     }
 
 </ul>
