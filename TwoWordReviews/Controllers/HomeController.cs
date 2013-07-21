@@ -1,20 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TwoWordReviews.Models;
 using TWRDataAccess;
 using TWRDataAccess.Entities;
+using TWRDataAccess.Repositories;
 using TWRDataAccess.Types;
 using TWRDataAccess.Utils;
 
 namespace TwoWordReviews.Controllers
 {
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class HomeController : Controller
     {
         //
         // GET: /Home/
+
+        [Import(typeof(IRepositoryCollection))]
+        public IRepositoryCollection Repositories { get; set; }
 
         public ActionResult Index()
         {
@@ -25,15 +32,11 @@ namespace TwoWordReviews.Controllers
         {
             if (ShouldSave(model))
             {
-                using (TWRDataAccess.TWRContext context = new TWRContext())
+                Repositories.ReviewRepository.AddReview(new Review()
                 {
-                    context.ReviewRepository.AddReview(new Review()
-                    {
-                        Subject = new Subject(){Name = model.Subject, SubjectType = EnumHelper<SubjectType>.StringToEnum(model.SelectedType)},
-                        TwoWordReview = model.TwoWordReview,
-                    });
-                    context.SaveChanges();
-                }
+                    Subject = new Subject(){Name = model.Subject, SubjectType = EnumHelper<SubjectType>.StringToEnum(model.SelectedType)},
+                    TwoWordReview = model.TwoWordReview,
+                });
             }
             return View("AddReview", new MainModel());
         }

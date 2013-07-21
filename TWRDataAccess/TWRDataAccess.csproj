@@ -63,8 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Review.cs" />
+    <Compile Include="Migrations\201307210110072_Subjects.cs" />
+    <Compile Include="Migrations\201307210110072_Subjects.Designer.cs">
+      <DependentUpon>201307210110072_Subjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\RepositoryCollection.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
+    <Compile Include="Repositories\SubjectRepository.cs" />
     <Compile Include="TWRContext.cs" />
     <Compile Include="Entities\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,7 +106,11 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201307210110072_Subjects.resx">
+      <DependentUpon>201307210110072_Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
