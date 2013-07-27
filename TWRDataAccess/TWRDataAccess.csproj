@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201307210110072_Subjects.Designer.cs">
       <DependentUpon>201307210110072_Subjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201307271908160_widen_tables.cs" />
+    <Compile Include="Migrations\201307271908160_widen_tables.Designer.cs">
+      <DependentUpon>201307271908160_widen_tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\RepositoryCollection.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
@@ -109,6 +113,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201307210110072_Subjects.resx">
       <DependentUpon>201307210110072_Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307271908160_widen_tables.resx">
+      <DependentUpon>201307271908160_widen_tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
