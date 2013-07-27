@@ -11,7 +11,7 @@ namespace TWRDataAccess.Entities
     public class Review
     {
         public int ReviewId { get; set; }
-        [MaxLength(30)]
+        [MaxLength(300)]
         public string TwoWordReview { get; set; }
         public Subject Subject { get; set; }
     }

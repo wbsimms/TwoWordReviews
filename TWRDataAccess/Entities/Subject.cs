@@ -17,7 +17,7 @@ namespace TWRDataAccess.Entities
 
         public int SubjectId { get; set; }
 
-        [MaxLength(30)]
+        [MaxLength(300)]
         public string Name { get; set; }
         public SubjectType SubjectType { get; set; }
     }
