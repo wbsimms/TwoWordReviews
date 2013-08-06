@@ -14,5 +14,7 @@ namespace TWRDataAccess.Entities
         [MaxLength(300)]
         public string TwoWordReview { get; set; }
         public Subject Subject { get; set; }
+
+        public User User { get; set; }
     }
 }

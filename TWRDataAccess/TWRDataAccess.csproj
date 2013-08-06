@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Review.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201307210110072_Subjects.cs" />
     <Compile Include="Migrations\201307210110072_Subjects.Designer.cs">
       <DependentUpon>201307210110072_Subjects.cs</DependentUpon>

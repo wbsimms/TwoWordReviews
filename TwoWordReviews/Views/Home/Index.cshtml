@@ -1,4 +1,6 @@
-﻿@model dynamic
+﻿@using TwoWordReviews.Models
+@using TWRDataAccess.Entities
+@model TwoWordReviews.Models.MainModel
 
 @{
     ViewBag.Title = "Two Word Reviews";
@@ -6,5 +8,6 @@
 }
 
 <h2>Two Word Reviews</h2>
+<div>@Html.Partial("AddReview",Model)</div>
 
-@Html.ActionLink("Add Review","AddReview")
+@*@Html.ActionLink("Add Review","AddReview")*@

@@ -20,5 +20,6 @@ namespace TWRDataAccess.Entities
         [MaxLength(300)]
         public string Name { get; set; }
         public SubjectType SubjectType { get; set; }
+
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using TwoWordReviews.Models;
 using TWRDataAccess;
 using TWRDataAccess.Entities;
@@ -25,7 +26,9 @@ namespace TwoWordReviews.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            MainModel mainModel = new MainModel();
+            mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
+            return View(mainModel);
         }
 
         [HttpGet]
