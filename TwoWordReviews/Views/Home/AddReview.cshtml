@@ -7,28 +7,27 @@
 }*@
 
 <h2>AddReview</h2>
-<ul>
-    
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary()
-        @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = y}),"What did you review?");
-        
-        <div>
-            <span>What are you reviewing?</span>
-            @Html.TextBoxFor(x => x.Subject)
-        </div>
+<div class="panel">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div>@Html.DropDownListFor(x => x.SelectedType, Model.SubjectTypes.Select(y => new SelectListItem() { Text = y, Value = y }), "What did you review?")</div>        
+    <div>
+        <div><span>What are you reviewing?</span>
+        @Html.TextBoxFor(x => x.Subject)</div>
+    </div>
+    <div>
         <div>
             <span>Two word review</span>
-            @Html.TextBoxFor(x=>x.TwoWordReview)
+            @Html.TextBoxFor(x => x.TwoWordReview)
         </div>
-        <input type="submit">
-    }
-    <hr/>
-    <div>Subject ===== TwoWordReview</div>
-    @foreach (Review r in Model.AllReviews)
-    {
-        <div>@r.Subject.Name ===== @r.TwoWordReview</div>
-    }
-
-</ul>
+    </div>
+    <input type="submit">
+}
+<hr />
+<div>Subject ===== TwoWordReview</div>
+@foreach (Review r in Model.AllReviews)
+{
+    <div>@r.Subject.Name ===== @r.TwoWordReview</div>
+}
+</div>
