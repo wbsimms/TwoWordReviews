@@ -6,28 +6,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }*@
 
-<h2>AddReview</h2>
-<div class="panel">
-@using (Html.BeginForm())
+<div class="row">
+@using (Html.BeginForm("AddReview", "Home", FormMethod.Post, new Dictionary<string, object>() { { "class", "form-horizontal" } }))
 {
     @Html.ValidationSummary()
-    <div>@Html.DropDownListFor(x => x.SelectedType, Model.SubjectTypes.Select(y => new SelectListItem() { Text = y, Value = y }), "What did you review?")</div>        
-    <div>
-        <div><span>What are you reviewing?</span>
-        @Html.TextBoxFor(x => x.Subject)</div>
-    </div>
-    <div>
-        <div>
-            <span>Two word review</span>
-            @Html.TextBoxFor(x => x.TwoWordReview)
+    <div class="form-group col-lg-12 row">
+        <div class="col-lg-5 col-10">
+            @Html.DropDownListFor(x => x.SelectedType, Model.SubjectTypes.Select(y => new SelectListItem() { Text = y, Value = y }), "What did you review?",new Dictionary<string, object>(){{"class","form-control"}})
+        </div>
+    </div>        
+    <div class="form-group row col-lg-12">
+        <label for="Subject" class="col-lg-2 col-4 control-label">What are you reviewing?</label>
+        <div class="col-lg-3 col-6">
+            @Html.TextBoxFor(x => x.Subject,new Dictionary<string, object>(){{"class","form-control"}})
         </div>
     </div>
-    <input type="submit">
+    <div class="form-group row col-lg-12">
+        <label class="col-lg-2 col-4 control-label" for="TwoWordReview">Two word review</label>
+        <div class="col-lg-3 col-6">
+            @Html.TextBoxFor(x => x.TwoWordReview,new Dictionary<string, object>(){{"class","form-control"}})
+        </div>
+    </div>
+    <div class="form-group col-lg-2 col-4 row">
+        <input class="btn btn-primary" type="submit">
+    </div>
 }
-<hr />
-<div>Subject ===== TwoWordReview</div>
+</div>
+
+<div class="row">
+<p>Subject ===== TwoWordReview</p>
 @foreach (Review r in Model.AllReviews)
 {
-    <div>@r.Subject.Name ===== @r.TwoWordReview</div>
+    <p>@r.Subject.Name ===== @r.TwoWordReview</p>
 }
 </div>

@@ -7,7 +7,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Two Word Reviews</h2>
-<div>@Html.Partial("AddReview",Model)</div>
-
+<div class="panel">
+<div class="panel panel-primary"><div class="panel-heading">Two Word Critic</div>
+    <div class="well">@Html.Partial("AddReview",Model)</div>
+</div>
+    </div>
 @*@Html.ActionLink("Add Review","AddReview")*@
