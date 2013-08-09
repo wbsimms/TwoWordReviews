@@ -28,15 +28,7 @@ namespace TwoWordReviews.Controllers
         {
             MainModel mainModel = new MainModel();
             mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
-            return View(mainModel);
-        }
-
-        [HttpGet]
-        public ActionResult AddReview()
-        {
-            MainModel mainModel = new MainModel();
-            mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
-            return View("AddReview", mainModel);
+            return View("Index", mainModel);
         }
 
         [HttpPost]
@@ -45,7 +37,7 @@ namespace TwoWordReviews.Controllers
             if (!ModelState.IsValid)
             {
                 model.AllReviews = Repositories.ReviewRepository.GetAllReviews();
-                return View("AddReview", model);
+                return View("Index", model);
             }
             if (ShouldSave(model))
             {
@@ -57,7 +49,7 @@ namespace TwoWordReviews.Controllers
             }
             MainModel mainModel = new MainModel();
             mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
-            return View("AddReview", mainModel);
+            return View("Index", mainModel);
         }
 
         public bool ShouldSave(MainModel model)
