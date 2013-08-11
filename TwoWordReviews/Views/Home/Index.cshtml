@@ -8,8 +8,15 @@
 }
 
 <div class="panel">
-<div class="panel panel-primary"><div class="panel-heading">Two Word Critic</div>
-    <div class="well">@Html.Partial("AddReview",Model)</div>
-</div>
+    <div class="panel panel-primary"><div class="panel-heading">Two Word Critic</div>
+        <div class="well">@Html.Partial("AddReview",Model)</div>
     </div>
+</div>
+
+<div class="panel col-lg-5 col-7">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Recent Reviews</div>
+        <div class="well">@Html.Partial("ReviewList",Model)</div>
+    </div>
+</div>
 @*@Html.ActionLink("Add Review","AddReview")*@

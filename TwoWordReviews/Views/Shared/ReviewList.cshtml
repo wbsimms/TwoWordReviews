@@ -1,0 +1,10 @@
+﻿@using TWRDataAccess.Entities
+@model TwoWordReviews.Models.MainModel
+
+<table class="table">
+    <tr><th>Subect</th><th>Two Word Review</th></tr>
+    @foreach (Review r in Model.AllReviews)
+    {
+        <tr><td>@r.Subject.Name</td><td>@r.TwoWordReview</td></tr>
+    }
+</table>
