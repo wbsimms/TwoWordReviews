@@ -28,7 +28,7 @@ namespace TwoWordReviews.Controllers
         {
             MainModel mainModel = new MainModel();
             mainModel.AllReviews = Repositories.ReviewRepository.GetAllReviews();
-            return View("Index", mainModel);
+            return View(mainModel);
         }
 
         [HttpPost]
